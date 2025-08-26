@@ -5,7 +5,8 @@ using namespace std;
 class BigInt {
     string number;    // Stores the number as a string
     bool isNegative;  // True if number is negative
-
+    //===============Helper Function ===============================// "Habiba" 
+    // 
     // Remove unnecessary leading zeros from the number string
     void removeLeadingZeros() {
         // TODO: Implement this function
@@ -17,6 +18,7 @@ class BigInt {
         // TODO: Implement this function
         return 0;
     }
+    //========Constructors , destructor , assignment operator =========// "Kareem"
 
 public:
     // Default constructor - initialize to zero
@@ -50,6 +52,7 @@ public:
         return *this;
     }
 
+    //====================Unary operators================// "Habiba"
     // Unary negation operator (-x)
     BigInt operator-() const {
         BigInt result;
@@ -64,6 +67,7 @@ public:
         return result;
     }
 
+    //Arithmatic assignment Operators// "Ahmed Ammar"
     // Addition assignment operator (x += y)
     BigInt& operator+=(const BigInt& other) {
         // TODO: Implement this operator
@@ -119,7 +123,7 @@ public:
         // TODO: Implement this operator
         return temp;
     }
-
+    // ================Conversion and stream operators================= //"Elham" 
     // Convert BigInt to string representation
     string toString() const {
         // TODO: Implement this function
@@ -143,6 +147,7 @@ public:
     friend bool operator<(const BigInt& lhs, const BigInt& rhs);
 };
 
+//============Binary arithmatic and comparison operators=============// "Ahmed Rasoul" 
 // Binary addition operator (x + y)
 BigInt operator+(BigInt lhs, const BigInt& rhs) {
     BigInt result;
@@ -213,7 +218,7 @@ bool operator>=(const BigInt& lhs, const BigInt& rhs) {
     // TODO: Implement this operator
     return false;
 }
-
+///////////////////////////////////////////////////////////////////////////////////////all team members
 int main() {
     cout << "=== BigInt Class Test Program ===" << endl << endl;
     cout << "NOTE: All functions are currently empty." << endl;
