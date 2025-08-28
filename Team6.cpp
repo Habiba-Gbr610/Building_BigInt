@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
+#include <cstdint>
 using namespace std;
-
+    // =====Healper Functions=====//     "Habiba"
 class BigInt {
     string number;    // Stores the number as a string
     bool isNegative;  // True if number is negative
-    //===============Helper Function ===============================// "Habiba" 
-    // 
+   
     // Remove unnecessary leading zeros from the number string
     void removeLeadingZeros() {
         // TODO: Implement this function
@@ -18,7 +18,7 @@ class BigInt {
         // TODO: Implement this function
         return 0;
     }
-    //========Constructors , destructor , assignment operator =========// "Kareem"
+    //========Constructors , destructor //
 
 public:
     // Default constructor - initialize to zero
@@ -46,13 +46,12 @@ public:
         // TODO: Implement if needed
     }
 
-    // Assignment operator
+    // Assignment operator           "Habiba" 
     BigInt& operator=(const BigInt& other) {
         // TODO: Implement this operator
         return *this;
     }
 
-    //====================Unary operators================// "Habiba"
     // Unary negation operator (-x)
     BigInt operator-() const {
         BigInt result;
@@ -67,7 +66,7 @@ public:
         return result;
     }
 
-    //Arithmatic assignment Operators// "Ahmed Ammar"
+    //Arithmatic assignment Operators//         "Ahmed Ammar"
     // Addition assignment operator (x += y)
     BigInt& operator+=(const BigInt& other) {
         // TODO: Implement this operator
@@ -97,7 +96,7 @@ public:
         // TODO: Implement this operator
         return *this;
     }
-
+      // Increment and decrement operators //          "Elham"
     // Pre-increment operator (++x)
     BigInt& operator++() {
         // TODO: Implement this operator
@@ -123,7 +122,7 @@ public:
         // TODO: Implement this operator
         return temp;
     }
-    // ================Conversion and stream operators================= //"Elham" 
+      //conversion and stream operators //           "Muhammed"
     // Convert BigInt to string representation
     string toString() const {
         // TODO: Implement this function
@@ -143,11 +142,15 @@ public:
     }
 
     // Friend declarations for comparison operators
-    friend bool operator==(const BigInt& lhs, const BigInt& rhs);
-    friend bool operator<(const BigInt& lhs, const BigInt& rhs);
+    friend bool operator==(const BigInt& lhs, const BigInt& rhs){
+
+    }
+    friend bool operator<(const BigInt& lhs, const BigInt& rhs){
+
+    }
 };
 
-//============Binary arithmatic and comparison operators=============// "Ahmed Rasoul" 
+//============Binary arithmatic operators=============//         "Ahmed Rasoul" 
 // Binary addition operator (x + y)
 BigInt operator+(BigInt lhs, const BigInt& rhs) {
     BigInt result;
@@ -182,7 +185,7 @@ BigInt operator%(BigInt lhs, const BigInt& rhs) {
     // TODO: Implement this operator
     return result;
 }
-
+     //=================Comparison Operators=================//        "Elham"
 // Equality comparison operator (x == y)
 bool operator==(const BigInt& lhs, const BigInt& rhs) {
     // TODO: Implement this operator
@@ -218,7 +221,7 @@ bool operator>=(const BigInt& lhs, const BigInt& rhs) {
     // TODO: Implement this operator
     return false;
 }
-///////////////////////////////////////////////////////////////////////////////////////all team members
+//=================Test Program=================//            "muhammed"
 int main() {
     cout << "=== BigInt Class Test Program ===" << endl << endl;
     cout << "NOTE: All functions are currently empty." << endl;
