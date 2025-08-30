@@ -10,12 +10,54 @@ class BigInt {
     // Remove unnecessary leading zeros from the number string
     void removeLeadingZeros() {
         // TODO: Implement this function
+        if(number.empty()){
+            number = "0";
+            isNegative = false;
+            return;
+        }
+        size_t i = 0;
+        while(i< number.size() && number[i]=='0')
+        i++;
+        if(i == number.size()){
+        number = "0";
+        isNegative = false;
+        return;
+        }
+
+       if(i>0) number.erase(0,i);
+        
     }
 
     // Compare absolute values of two BigInts (ignore signs)
     // Returns: 1 if |this| > |other|, 0 if equal, -1 if |this| < |other|
     int compareMagnitude(const BigInt& other) const {
         // TODO: Implement this function
+        size_t i1 = 0;
+        while (i1 < number.size() && number[i1] == '0')
+        i1++;
+        size_t i2 = 0;
+        while (i2< other.number.size()&& other.number[i2] == '0')
+        i2++;
+
+        size_t length1 =(i1 >= number.size()) ? 0 :( number.size() -i1);
+        size_t length2 = (i2 >= other.number.size()) ? 0 : (other,number.size() -i2);
+
+        
+         if(length1 == 0 && length2 == 0)
+         return 0;
+
+         if( length1 != length2)
+         return (length1 > length2) ? 1 : -1;
+
+         for(size_t k = 0; k< number.size(); k++){
+            char c1 = number[i1 + k];
+            char c2 = other.number[i2 + k];
+             if (c1>c2)
+             return 1;
+             if(c1<c2)
+             return -1;
+         }
+
         return 0;
     }
     //========Constructors , destructor //    "kareem" 
