@@ -170,27 +170,39 @@ public:
       //conversion and stream operators //           "Muhammed"
     // Convert BigInt to string representation
     string toString() const {
-        // TODO: Implement this function
-        return "";
+        return (isNegative && number != "0" ? "-" : "") + number;
+        
     }
 
     // Output stream operator (for printing)
     friend ostream& operator<<(ostream& os, const BigInt& num) {
-        // TODO: Implement this operator
+        os << num.toString();
         return os;
     }
 
     // Input stream operator (for reading from input)
     friend istream& operator>>(istream& is, BigInt& num) {
-        // TODO: Implement this operator
+        string str;
+        is >> str;
+        num = BigInt(str);
+        
         return is;
     }
 
     // Friend declarations for comparison operators
     friend bool operator==(const BigInt& lhs, const BigInt& rhs){
+        return lhs.isNegative == rhs.isNegative && lhs.number == rhs.number;
 
     }
     friend bool operator<(const BigInt& lhs, const BigInt& rhs){
+        if (lhs.isNegative != rhs.isNegative) {
+            return lhs.isNegative; 
+        }
+        int cmp = lhs.compareMagnitude(rhs);
+        if (lhs.isNegative) {
+            return cmp > 0;
+        }
+        return cmp < 0;
 
     }
 };
@@ -333,3 +345,4 @@ int main() {
 
     return 0;
 }
+
