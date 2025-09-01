@@ -42,7 +42,7 @@ class BigInt {
         size_t length1 =(i1 >= number.size()) ? 0 :( number.size() -i1);
         size_t length2 = (i2 >= other.number.size()) ? 0 : (other,number.size() -i2);
 
-        
+
          if(length1 == 0 && length2 == 0)
          return 0;
 
@@ -91,6 +91,14 @@ public:
     // Assignment operator           "Habiba" 
     BigInt& operator=(const BigInt& other) {
         // TODO: Implement this operator
+        if(this != &other){
+            number = other.number;
+            isNegative = other.isNegative;
+
+            removeLeadingZeros();
+            if(number == "0")
+            isNegative = false;
+        }
         return *this;
     }
 
@@ -98,6 +106,10 @@ public:
     BigInt operator-() const {
         BigInt result;
         // TODO: Implement negation logic
+        BigInt result(*this);
+        if(result.number != "0"){
+            result. isNegative = !result.isNegative;
+        }
         return result;
     }
 
@@ -105,6 +117,7 @@ public:
     BigInt operator+() const {
         BigInt result;
         // TODO: Implement this operator
+        return *this;
         return result;
     }
 
