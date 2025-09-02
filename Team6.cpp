@@ -74,13 +74,11 @@ public:
             string a = number;
             string b = other.number;
 
-            // Make sure 'a' is the longer one
             if (a.size() < b.size())
             {
                 swap(a, b);
             }
 
-            // Reverse for easier addition
             reverse(a.begin(), a.end());
             reverse(b.begin(), b.end());
 
@@ -134,7 +132,6 @@ public:
 
         string a = bigger, b = smaller;
 
-        // Reverse for easier substraction
         reverse(a.begin(), a.end());
         reverse(b.begin(), b.end());
 
@@ -209,7 +206,6 @@ public:
         reverse(result.begin(), result.end());
         number = result;
 
-        // Handle sign
         isNegative = (isNegative != other.isNegative);
         removeLeadingZeros();
 
@@ -219,13 +215,11 @@ public:
     // Division assignment operator (x /= y)
     BigInt& operator/=(const BigInt& other) {
         if (other.number == "0") {
-            throw std::runtime_error("Division by zero"); // safer than silently setting to zero
+            throw std::runtime_error("Division by zero"); 
         }
 
-        // Result sign
         bool resultNegative = (this->isNegative != other.isNegative);
 
-        // Work with absolute values
         BigInt dividend = *this;
         dividend.isNegative = false;
         BigInt divisor = other;
@@ -253,7 +247,7 @@ public:
         }
         number = result;
         removeLeadingZeros();
-        isNegative = (number != "0") ? resultNegative : false; // <<< add this
+        isNegative = (number != "0") ? resultNegative : false; 
         return *this;
     }
 
@@ -271,7 +265,6 @@ public:
         divisor.isNegative = false;
 
         if (dividend < divisor) {
-            // remainder is just dividend
             number = dividend.number;
             isNegative = resultNegative;
             return *this;
