@@ -265,36 +265,36 @@ public:
 //============Binary arithmatic operators=============//         "Ahmed Rasoul" 
 // Binary addition operator (x + y)
 BigInt operator+(BigInt lhs, const BigInt& rhs) {
-    BigInt result;
-    // TODO: Implement this operator
+    lhs += rhs;
+    BigInt result= lhs;
     return result;
 }
 
 // Binary subtraction operator (x - y)
 BigInt operator-(BigInt lhs, const BigInt& rhs) {
-    BigInt result;
-    // TODO: Implement this operator
+    lhs -= rhs;
+    BigInt result = lhs;
     return result;
 }
 
 // Binary multiplication operator (x * y)
 BigInt operator*(BigInt lhs, const BigInt& rhs) {
-    BigInt result;
-    // TODO: Implement this operator
+    lhs *= rhs;
+    BigInt result = lhs;
     return result;
 }
 
 // Binary division operator (x / y)
 BigInt operator/(BigInt lhs, const BigInt& rhs) {
-    BigInt result;
-    // TODO: Implement this operator
+    lhs /= rhs;
+    BigInt result = lhs;
     return result;
 }
 
 // Binary modulus operator (x % y)
 BigInt operator%(BigInt lhs, const BigInt& rhs) {
-    BigInt result;
-    // TODO: Implement this operator
+    lhs %= rhs;
+    BigInt result = lhs;
     return result;
 }
      //=================Comparison Operators=================//        "Elham"
