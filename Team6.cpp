@@ -66,7 +66,7 @@ public:
         return result;
     }
 
-    //Arithmatic assignment Operators//         "Ahmed Ammar"
+    //Arithmatic assignment Operators//         "Ahmed Rasoul"
     // Addition assignment operator (x += y)
     BigInt& operator+=(const BigInt& other)
     {
@@ -126,11 +126,22 @@ public:
             isNegative = false;
             return *this;
         }
-        const string& bigger = (cmp >= 0) ? number : other.number;
-        const string& smaller = (cmp >= 0) ? other.number : number;
-        bool resultNegative = (cmp >= 0) ? isNegative : !isNegative;
+        const string* bigger;
+        const string* smaller;
+        bool resultNegative;
 
-        string a = bigger, b = smaller;
+        if (cmp >= 0) {
+            bigger = &number;
+            smaller = &other.number;
+            resultNegative = isNegative;
+        }
+        else {
+            bigger = &other.number;
+            smaller = &number;
+            resultNegative = !isNegative;
+        }
+
+        string a = *bigger, b = *smaller;
 
         reverse(a.begin(), a.end());
         reverse(b.begin(), b.end());
@@ -277,7 +288,12 @@ public:
         temp *= divisor;
         remainder -= temp;
         *this = remainder;
-        isNegative = (number != "0") ? resultNegative : false;
+        if (number != "0") {
+            isNegative = resultNegative;
+        }
+        else {
+            isNegative = false;
+        }
         return *this;
     }
 
@@ -335,7 +351,7 @@ public:
     }
 };
 
-//============Binary arithmatic operators=============//         "Ahmed Rasoul" 
+//============Binary arithmatic operators=============//         "Ahmed Ammar" 
 // Binary addition operator (x + y)
 BigInt operator+(BigInt lhs, const BigInt& rhs) {
     lhs += rhs;
